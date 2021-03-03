@@ -1,13 +1,7 @@
-/* Copyright 2021
-** Justin Baum
-** MIT License
-** AlgoExpert Solutions
-*/
-
-
 #include <vector>
 #include <iostream>
 #include <string>
+#include <climits>
 using namespace std;
 
 typedef pair<int, vector<int> > pairy;
