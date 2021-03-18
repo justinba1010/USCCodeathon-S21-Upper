@@ -17,7 +17,13 @@ pushd $SCRIPT_DIR
         '11,10,1024'
         '12,10,2048'
         '13,10,4096'
-        '14,15,10240' 
+        '14,15,10000' 
+        '15,50,10000'
+        '16,75,10000'
+        '17,100,10000'
+        '18,10,10000'
+        '19,5,10000'
+        '20,3,10000'
 )
 
 pushd solutions
@@ -32,7 +38,7 @@ popd
     done <<< "$datarow"
   done
 
-  for i in {0..1}
+  for i in {0..0}
   do
     ./solutions/solutioncpp < input/input$i.txt > output/output$i.txt
   done
