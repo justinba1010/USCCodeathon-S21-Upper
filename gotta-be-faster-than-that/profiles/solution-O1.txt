@@ -1,0 +1,64 @@
+TESTCASE input00.txt
+--- Overview ---
+Output:         6
+Execution time:  0.000108004 s 
+Memory usage:      10.8633 mb 
+----------------
+
+TESTCASE input01.txt
+--- Overview ---
+Output:         9
+Execution time:  0.000325918 s 
+Memory usage:      10.8633 mb 
+----------------
+
+TESTCASE input02.txt
+--- Overview ---
+Output:         7
+Execution time:  0.000530481 s 
+Memory usage:      10.8633 mb 
+----------------
+
+TESTCASE input03.txt
+--- Overview ---
+Output:         5
+Execution time:  0.00266194 s 
+Memory usage:      11.5508 mb 
+----------------
+
+TESTCASE input04.txt
+--- Overview ---
+Output:         7
+Execution time:  0.0364258 s 
+Memory usage:      17.9492 mb 
+----------------
+
+TESTCASE input05.txt
+--- Overview ---
+Output:         9
+Execution time:  0.0313711 s 
+Memory usage:      19.1445 mb 
+----------------
+
+TESTCASE input06.txt
+--- Overview ---
+Output:         6
+Execution time:   0.538698 s 
+Memory usage:      121.125 mb 
+----------------
+
+TESTCASE input07.txt
+--- Overview ---
+Output:         7
+Execution time:    2.40963 s 
+Memory usage:       450.75 mb 
+----------------
+
+TESTCASE input08.txt
+--- Overview ---
+Output:         10
+Execution time:    4.29646 s 
+Memory usage:      843.426 mb (OUT OF MEMORY)
+----------------
+
+CHECK FAILED
