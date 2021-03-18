@@ -1,0 +1,5 @@
+4 2 1
+5 2 1
+5 2 1
+
+In this case there are two separate ways to make 5 2 1.

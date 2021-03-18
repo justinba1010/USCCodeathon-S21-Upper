@@ -18,7 +18,7 @@ m_1 m_2 m_3 ... m_n
 
 ## Constraints
 
-$$1 \leq n \leq 10000$$
+$$1 \leq n \leq 500000$$
 
 $$1 \leq v_i \leq 100$$
 
