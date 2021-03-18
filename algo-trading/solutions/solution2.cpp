@@ -1,46 +1,34 @@
 /* Copyright 2021
 ** Justin Baum
+** MIT License
 */
 
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
-
+#include <climits>
 using namespace std;
 
-vector<int> min_number_of_jumps(vector<int> &array) {
+vector<string> min_number_of_jumps(vector<int> &array, vector<string> &names) {
     int size = array.size();
-    vector<int> jumps = vector<int>(size + 1, INT_MAX >> 1);
-    jumps[size] = 0;
-    for (int i = size; i >= 0; --i) {
-        int forward = min(array[i], size - i);
-        for (int j = 1; j <= forward; ++j) {
-            if (jumps[i + j] + 1 < jumps[i]) {
-                jumps[i] = jumps[i+j] + 1;
-            }
+    vector<string> solution;
+    int steps = array[0];
+    int max_reach = array[0];
+    int max_index = 0;
+    solution.push_back(names[0]);
+    for (int i = 1; i < array.size() - 1; i++) {
+        int new_reach = i + array[i];
+        --steps;
+        if (new_reach > max_reach) {
+            max_index = i;
+            max_reach = new_reach;
+        }
+        if (steps == 0) {
+            solution.push_back(names[max_index]);
+            steps = max_reach - i;
         }
     }
-    return jumps;
-}
-
-vector<string> to_names(vector<int> &min_jumps, vector<string> &names) {
-    int size = min_jumps.size();
-    int i = size - 1;
-    names.insert(names.begin(), "");
-    vector<string> order = {};
-    while (i > 0) {
-        if (min_jumps[i] < min_jumps[i-1]) {
-            order.insert(order.begin(), names[i]);
-            cout << "Name: " << names[i] << endl;
-        }
-        --i;
-    }
-    names.erase(names.begin());
-    cout << names[0] << endl;
-    order.insert(order.begin(), names[0]);
-    unique(order.begin(), order.end());
-    return order;
+    return solution;
 }
 
 int main(void) {
@@ -58,14 +46,12 @@ int main(void) {
         cin >> x;
         names.push_back(x);
     }
-    auto x = min_number_of_jumps(array);
-    for(int jump : x) {
-        cout << jump << " ";
+    auto x = min_number_of_jumps(array, names);
+    //cout << x.first << endl;
+    for(string name : x) {
+        cout << name << " ";
     }
-    cout << endl;
-    for (auto name : to_names(x, names)) cout << name << " ";
+    cout << names[n - 1];
     cout << endl;
     return 0;
 }
-    
-

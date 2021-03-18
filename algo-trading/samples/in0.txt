@@ -1,0 +1,7 @@
+The fastest route is to jump from
+RickRoll we can only go to CatPiano
+CatPiano we can jump to BabyYoda or ImNotACat, but because BabyYoda makes us take one more jump to get to ImNotACat it is faster to go to ImNotACat
+ImNotACat means we make one jump to the end
+TwentyTwentyOne and we do a final jump again to show that we reached the end.
+
+RickRoll -> CatPiano -> ImNotACat -> TwentyTwentyOne
