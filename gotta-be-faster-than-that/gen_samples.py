@@ -69,12 +69,12 @@ def generate_sample(n, k, l, file=stdout):
   for i in tqdm(shuffled_idxs):
     j = i + 1 if (i + 1) % kl > 0 else i - kl + 1
     i, j = rng.permutation([i, j])  # Flip the order of the pair
-    print(int_to_name(shuffled_groups[i], max_n=n), "~~~", int_to_name(shuffled_groups[j], max_n=n), file=file)
+    print(int_to_name(shuffled_groups[i], max_n=n), int_to_name(shuffled_groups[j], max_n=n), file=file)
 
   return kl
 
-def generate_multiple(max_exp=11, k_max=10, exp_base=6):
-  ns = [exp_base**i for i in range(2,max_exp+1)]
+def generate_multiple(min_exp=2, max_exp=11, k_max=10, exp_base=5):
+  ns = [exp_base**i for i in range(min_exp,max_exp+1)]
   ks = list(range(3, k_max+1))
 
   os.system("mkdir -p testcases/input testcases/output")
@@ -90,6 +90,20 @@ def generate_multiple(max_exp=11, k_max=10, exp_base=6):
     with open(ifname, "w+") as ifile, open(ofname, "w+") as ofile:
       cycle_size = generate_sample(n, k, l, file=ifile)
       print(cycle_size, file=ofile)
+
+def test_one(n, k, l):
+  from profile_solution import main_limited
+
+  with open("/tmp/sampleinput.txt", "w+") as f, open("/tmp/sampleoutput.txt", "w+") as of:
+    print("Generating sample (%d, %d, %d)" % (n,k,l))
+    cycle_size = generate_sample(n, k, l, file=f)
+    print(cycle_size, file=of)
+    f.seek(0)
+    success, output = main_limited(f=f)
+    if output != cycle_size:
+      print("WRONG ANSWER: Correct %d, Given %d" % (cycle_size, output))
+      success = False
+    return success
 
 def main():
   generate_multiple()

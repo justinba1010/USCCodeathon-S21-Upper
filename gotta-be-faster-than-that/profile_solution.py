@@ -56,7 +56,7 @@ if __name__ == "__main__":
   argv = argp.parse_args()
 
   if argv.single:
-    success = main_limited(time_limit=argv.time_limit, mem_limit=argv.mem_limit, O=argv.O, npairs=argv.pairs)
+    success, _ = main_limited(time_limit=argv.time_limit, mem_limit=argv.mem_limit, O=argv.O, npairs=argv.pairs)
   else:
     success = check_all(time_limit=argv.time_limit, mem_limit=argv.mem_limit, O=argv.O, npairs=argv.pairs)
 
