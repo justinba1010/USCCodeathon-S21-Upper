@@ -25,7 +25,7 @@ def read_input(f=stdin):
     line = line.strip()
     if not line: continue
     split = line.split()
-    assert len(split) == 3
+    assert len(split) == 2
     yield split[0], split[-1]
 
 def path_len(path, O):
