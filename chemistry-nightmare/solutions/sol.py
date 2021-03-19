@@ -1,20 +1,21 @@
-kimport sys
+import sys
 from collections import defaultdict
 
 
 def dfs_helper(a,b, visited):
    if a == b:
       return True
-   visted.add(a)
-   if len(visted) == num_nodes:
-      return False
+   visited.add(a)
+   flags = []
    for neighbor in adj[a]:
       if neighbor not in visited:
-         dfs_helper(neighbor,b,visited)
+        flags.append(dfs_helper(neighbor,b,visited))
+        # print(dfs_helper(neighbor,b,visited))
+   return any(flag for flag in flags)
 
 def dfs(a,b):
    visited = set()
-   dfs_helper(a,b,visited)
+   return dfs_helper(a,b,visited)
 
 # Driver Code
 m,n = sys.stdin.readline().split(' ')
@@ -30,16 +31,15 @@ num_nodes = len(adj)
 
 for i in range (int(n)):
    w1, w2 = sys.stdin.readline().split(' ')
+   w2 = w2.strip()
    char_pairs = zip(w1,w2)
    if not len(w1) == len(w2):
-	print('no')
+      print('no')
    else:
       for a,b in char_pairs:
+         # print(a,b)
          if not dfs(a,b):
             print('no')
             break
-         else:
-            print('yes')
-
-
-
+      else:
+         print('yes')
